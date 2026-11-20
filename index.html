@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steger Medics · Dermatologia e Nutrologia em Goiânia</title>
+<meta name="description" content="Steger Medics: dermatologia clínica e estética com a Dra. Michelly Steger e nutrologia com o Dr. Thiago Steger, em Goiânia. Agende pelo WhatsApp.">
+<meta name="theme-color" content="#05070b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Steger Medics · Sua saúde, nossa prioridade">
+<meta property="og:description" content="Dermatologia e nutrologia em Goiânia. Agende pelo WhatsApp.">
+<meta property="og:image" content="og.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fundo: #05070b;
+    --fundo-2: #0a0f17;
+    --cartao: rgba(255,255,255,0.035);
+    --borda: rgba(255,255,255,0.08);
+    --texto: #eef1f5;
+    --suave: #9aa6b6;
+    --creme: #f3e7d8;
+    --azul-1: #4fb3f6;
+    --azul-2: #2c5fdb;
+    --grad: linear-gradient(135deg, var(--azul-1), var(--azul-2));
+    --raio: 20px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--fundo); color: var(--texto); font-family: "Montserrat", system-ui, sans-serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; }
+  img, svg { display: block; }
+  .faixa { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+  /* Navegação */
+  nav { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+  nav.rolou { background: rgba(5,7,11,.82); backdrop-filter: blur(14px); border-color: var(--borda); }
+  nav .faixa { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+  .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .marca svg { width: 30px; height: 36px; }
+  .marca span { font-size: 19px; letter-spacing: .2px; font-weight: 300; color: var(--creme); }
+  .marca span b { font-weight: 700; }
+  .links { display: flex; align-items: center; gap: 30px; }
+  .links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--suave); transition: color .2s; }
+  .links a:hover { color: var(--texto); }
+  .links a.botao, .links a.botao:hover { color: #fff; }
+  .botao { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 24px; border-radius: 999px; background: var(--grad); color: #fff; box-shadow: 0 10px 30px -10px rgba(44,95,219,.7); transition: transform .2s, box-shadow .2s; }
+  .botao:hover { transform: translateY(-2px); box-shadow: 0 16px 40px -12px rgba(44,95,219,.85); }
+  .botao.fantasma { background: transparent; border: 1px solid var(--borda); box-shadow: none; color: var(--texto); }
+  .botao.fantasma:hover { border-color: rgba(79,179,246,.5); }
+  .botao.pequeno { padding: 10px 18px; font-size: 14px; }
+  .botao svg { width: 18px; height: 18px; }
+  .menu-btn { display: none; background: none; border: 0; color: var(--texto); padding: 8px; cursor: pointer; }
+
+  /* Herói */
+  .heroi { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 0 80px; overflow: hidden; }
+  .heroi::before { content: ""; position: absolute; width: 900px; height: 900px; right: -260px; top: 50%; transform: translateY(-50%); background: radial-gradient(circle, rgba(44,95,219,.28), rgba(79,179,246,.08) 40%, transparent 68%); filter: blur(10px); pointer-events: none; }
+  .heroi .faixa { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .selo { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--azul-1); font-weight: 600; margin-bottom: 22px; }
+  .selo::before { content: ""; width: 26px; height: 1px; background: var(--azul-1); }
+  h1 { font-size: clamp(40px, 6vw, 72px); line-height: 1.04; margin: 0 0 22px; font-weight: 300; letter-spacing: -1.5px; color: var(--creme); }
+  h1 strong { font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .heroi p.lead { font-size: 18px; color: var(--suave); max-width: 540px; margin: 0 0 34px; }
+  .acoes { display: flex; flex-wrap: wrap; gap: 14px; }
+  .heroi .marca-grande { justify-self: center; position: relative; width: min(380px, 80vw); aspect-ratio: 100/120; }
+  .heroi .marca-grande svg { width: 100%; height: 100%; filter: drop-shadow(0 30px 60px rgba(44,95,219,.45)); animation: flutuar 7s ease-in-out infinite; }
+  .anel { position: absolute; inset: -12%; border-radius: 50%; border: 1px solid rgba(79,179,246,.15); animation: girar 40s linear infinite; }
+  .anel::after { content: ""; position: absolute; top: 8%; left: 50%; width: 8px; height: 8px; border-radius: 50%; background: var(--azul-1); box-shadow: 0 0 18px var(--azul-1); }
+  .anel.dois { inset: -26%; border-color: rgba(79,179,246,.07); animation-duration: 70s; animation-direction: reverse; }
+  @keyframes flutuar { 50% { transform: translateY(-14px); } }
+  @keyframes girar { to { transform: rotate(360deg); } }
+  .numeros { display: flex; gap: 40px; margin-top: 52px; padding-top: 30px; border-top: 1px solid var(--borda); }
+  .numeros div b { display: block; font-size: 26px; font-weight: 700; color: var(--creme); }
+  .numeros div span { font-size: 13px; color: var(--suave); }
+
+  /* Seções */
+  section { padding: 110px 0; position: relative; }
+  .titulo-secao { max-width: 680px; margin-bottom: 56px; }
+  .titulo-secao h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.12; margin: 0 0 16px; font-weight: 300; letter-spacing: -.8px; color: var(--creme); }
+  .titulo-secao h2 strong { font-weight: 700; }
+  .titulo-secao p { color: var(--suave); font-size: 17px; margin: 0; }
+
+  /* Especialidades */
+  .especialidades { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .especialidade { position: relative; padding: 40px; border-radius: var(--raio); background: var(--cartao); border: 1px solid var(--borda); overflow: hidden; transition: border-color .3s, transform .3s; }
+  .especialidade:hover { border-color: rgba(79,179,246,.35); transform: translateY(-4px); }
+  .especialidade::after { content: ""; position: absolute; width: 320px; height: 320px; right: -120px; top: -120px; border-radius: 50%; background: radial-gradient(circle, rgba(79,179,246,.16), transparent 70%); }
+  .icone { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; background: rgba(79,179,246,.12); color: var(--azul-1); margin-bottom: 26px; }
+  .icone svg { width: 26px; height: 26px; }
+  .especialidade .area { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--azul-1); font-weight: 600; }
+  .especialidade h3 { font-size: 28px; margin: 8px 0 4px; font-weight: 600; color: var(--creme); }
+  .especialidade .crm { font-size: 13px; color: var(--suave); margin-bottom: 18px; }
+  .especialidade p { color: var(--suave); margin: 0 0 22px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags span { font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--borda); color: var(--texto); }
+
+  /* Consulta */
+  .fundo-2 { background: var(--fundo-2); border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); }
+  .grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .item { padding: 30px 26px; border-radius: var(--raio); background: var(--cartao); border: 1px solid var(--borda); }
+  .item .icone { width: 44px; height: 44px; border-radius: 12px; margin-bottom: 20px; }
+  .item .icone svg { width: 22px; height: 22px; }
+  .item h4 { margin: 0 0 8px; font-size: 17px; font-weight: 600; color: var(--creme); }
+  .item p { margin: 0; color: var(--suave); font-size: 15px; }
+  .pagamento { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; padding: 22px 28px; border-radius: var(--raio); border: 1px dashed rgba(79,179,246,.3); color: var(--suave); font-size: 15px; }
+  .pagamento b { color: var(--creme); font-weight: 600; }
+
+  /* WhatsApp */
+  .whats { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .passos { list-style: none; margin: 0 0 34px; padding: 0; counter-reset: p; }
+  .passos li { counter-increment: p; display: flex; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--borda); color: var(--suave); }
+  .passos li::before { content: counter(p, decimal-leading-zero); font-weight: 700; color: var(--azul-1); min-width: 28px; }
+  .passos li b { color: var(--texto); font-weight: 600; }
+  .celular { justify-self: center; width: 300px; border-radius: 38px; padding: 14px; background: linear-gradient(160deg, #1b2230, #0b0f16); border: 1px solid var(--borda); box-shadow: 0 40px 80px -30px rgba(44,95,219,.5); }
+  .tela { border-radius: 28px; background: #0e141d; padding: 18px 14px 22px; min-height: 430px; }
+  .tela .topo { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--borda); margin-bottom: 16px; }
+  .tela .topo .av { width: 34px; height: 34px; border-radius: 50%; background: #000; display: grid; place-items: center; }
+  .tela .topo .av svg { width: 16px; height: 19px; }
+  .tela .topo b { font-size: 13px; display: block; }
+  .tela .topo small { font-size: 11px; color: #5fd38d; }
+  .bolha { max-width: 85%; font-size: 12.5px; line-height: 1.5; padding: 9px 12px; border-radius: 14px; margin-bottom: 10px; opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s; }
+  .bolha.vis { opacity: 1; transform: none; }
+  .bolha.eles { background: #1d2532; border-bottom-left-radius: 4px; }
+  .bolha.eu { background: #1f4fb8; margin-left: auto; border-bottom-right-radius: 4px; }
+
+  /* Local */
+  .local { display: grid; grid-template-columns: .9fr 1.1fr; gap: 32px; align-items: stretch; }
+  .info { padding: 40px; border-radius: var(--raio); background: var(--cartao); border: 1px solid var(--borda); display: flex; flex-direction: column; gap: 22px; }
+  .info .linha { display: flex; gap: 16px; }
+  .info .linha .icone { width: 42px; height: 42px; border-radius: 12px; margin: 0; flex: none; }
+  .info .linha .icone svg { width: 20px; height: 20px; }
+  .info .linha b { display: block; color: var(--creme); font-weight: 600; margin-bottom: 2px; }
+  .info .linha span { color: var(--suave); font-size: 15px; }
+  .mapa { border-radius: var(--raio); overflow: hidden; border: 1px solid var(--borda); min-height: 380px; background: #0e141d; }
+  .mapa iframe { width: 100%; height: 100%; min-height: 380px; border: 0; filter: grayscale(.4) invert(.9) hue-rotate(185deg) contrast(.9); }
+
+  /* Chamada final */
+  .chamada { text-align: center; padding: 100px 0; }
+  .chamada .caixa { position: relative; padding: 70px 30px; border-radius: 28px; background: radial-gradient(ellipse at top, rgba(44,95,219,.35), transparent 70%), var(--fundo-2); border: 1px solid var(--borda); overflow: hidden; }
+  .chamada h2 { font-size: clamp(30px, 4.4vw, 50px); margin: 0 0 14px; font-weight: 300; color: var(--creme); letter-spacing: -.8px; }
+  .chamada h2 strong { font-weight: 700; }
+  .chamada p { color: var(--suave); margin: 0 auto 32px; max-width: 520px; }
+
+  footer { border-top: 1px solid var(--borda); padding: 46px 0 36px; color: var(--suave); font-size: 13.5px; }
+  footer .faixa { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+  footer h5 { margin: 0 0 12px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--texto); font-weight: 600; }
+  footer p { margin: 0 0 6px; }
+  footer .base { grid-column: 1 / -1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 24px; margin-top: 8px; border-top: 1px solid var(--borda); font-size: 12.5px; }
+  footer .base a { text-decoration: none; color: var(--suave); }
+  footer .base a:hover { color: var(--texto); }
+
+  .whats-flutuante { position: fixed; right: 22px; bottom: 22px; z-index: 30; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: #25d366; color: #fff; box-shadow: 0 12px 30px -8px rgba(37,211,102,.6); transition: transform .2s; }
+  .whats-flutuante:hover { transform: scale(1.07); }
+  .whats-flutuante svg { width: 30px; height: 30px; }
+
+  .revela { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .revela.vis { opacity: 1; transform: none; }
+
+  @media (max-width: 980px) {
+    .heroi .faixa, .whats, .local { grid-template-columns: 1fr; }
+    .heroi .marca-grande { width: 150px; order: -1; margin-top: 10px; }
+    .especialidades { grid-template-columns: 1fr; }
+    .grade { grid-template-columns: 1fr 1fr; }
+    footer .faixa { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .links { display: none; position: absolute; top: 74px; left: 0; right: 0; flex-direction: column; gap: 0; background: rgba(5,7,11,.96); border-bottom: 1px solid var(--borda); padding: 8px 24px 20px; }
+    .links.aberto { display: flex; }
+    .links a { padding: 12px 0; width: 100%; }
+    .links .botao { margin-top: 8px; justify-content: center; }
+    .menu-btn { display: block; }
+    .faixa { padding: 0 16px; }
+    section { padding: 80px 0; }
+    .grade { grid-template-columns: 1fr; }
+    .especialidade, .info { padding: 28px; }
+    .numeros { gap: 24px; flex-wrap: wrap; }
+    .heroi { padding-top: 110px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .revela, .bolha { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gS" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5cc0fa"/>
+      <stop offset="1" stop-color="#2c5fdb"/>
+    </linearGradient>
+    <symbol id="simbolo" viewBox="0 0 100 120">
+      <path fill="url(#gS)" d="M92 5 C64 9 19 19 15 41 C13 53 29 59 53 61 C36 55 30 49 32 41 C36 26 64 14 92 5 Z"/>
+      <path fill="url(#gS)" d="M47 62 C66 64 81 70 80 83 C78 99 46 111 12 117 C40 106 66 96 66 84 C66 73 58 66 47 62 Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav id="nav">
+  <div class="faixa">
+    <a class="marca" href="#inicio" aria-label="Steger Medics, início">
+      <svg aria-hidden="true"><use href="#simbolo"/></svg>
+      <span>Steger <b>Medics</b></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir o menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <div class="links" id="links">
+      <a href="#especialidades">Especialidades</a>
+      <a href="#consulta">A consulta</a>
+      <a href="#whatsapp">Atendimento</a>
+      <a href="#local">Como chegar</a>
+      <a class="botao pequeno" href="https://wa.me/5562981864858?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar consulta</a>
+    </div>
+  </div>
+</nav>
+
+<header class="heroi" id="inicio">
+  <div class="faixa">
+    <div class="revela">
+      <div class="selo">Dermatologia e Nutrologia · Goiânia</div>
+      <h1>Sua saúde, <strong>nossa prioridade.</strong></h1>
+      <p class="lead">Cuidado médico próximo e individualizado, com acompanhamento de verdade. Dermatologia clínica e estética com a Dra. Michelly Steger e nutrologia com o Dr. Thiago Steger.</p>
+      <div class="acoes">
+        <a class="botao" href="https://wa.me/5562981864858?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+          Agendar pelo WhatsApp
+        </a>
+        <a class="botao fantasma" href="#especialidades">Conhecer as especialidades</a>
+      </div>
+      <div class="numeros">
+        <div><b>2</b><span>especialidades médicas</span></div>
+        <div><b>50 min</b><span>de consulta, em média</span></div>
+        <div><b>10+ anos</b><span>idade mínima de atendimento</span></div>
+      </div>
+    </div>
+    <div class="marca-grande revela" aria-hidden="true">
+      <div class="anel"></div><div class="anel dois"></div>
+      <svg><use href="#simbolo"/></svg>
+    </div>
+  </div>
+</header>
+
+<section id="especialidades">
+  <div class="faixa">
+    <div class="titulo-secao revela">
+      <div class="selo">Especialidades</div>
+      <h2>Dois olhares médicos, <strong>um só cuidado.</strong></h2>
+      <p>Cada consulta é conduzida com tempo, escuta e um plano pensado para você.</p>
+    </div>
+    <div class="especialidades">
+      <article class="especialidade revela">
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 3.5 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-6.5 6-10Z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></div>
+        <div class="area">Dermatologia clínica e estética</div>
+        <h3>Dra. Michelly Steger</h3>
+        <div class="crm">Médica dermatologista · CRM/GO 30033</div>
+        <p>Cuidado com a saúde da pele, dos cabelos e das unhas, do diagnóstico ao tratamento, e procedimentos estéticos com indicação médica e naturalidade.</p>
+        <div class="tags"><span>Pele</span><span>Cabelos e unhas</span><span>Procedimentos estéticos</span></div>
+      </article>
+      <article class="especialidade revela">
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <div class="area">Nutrologia</div>
+        <h3>Dr. Thiago Steger</h3>
+        <div class="crm">Médico nutrólogo · CRM/GO 29988</div>
+        <p>Acompanhamento médico para emagrecimento, composição corporal e saúde hormonal, com avaliação completa e um plano individualizado.</p>
+        <div class="tags"><span>Emagrecimento</span><span>Saúde hormonal</span><span>Composição corporal</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="consulta" class="fundo-2">
+  <div class="faixa">
+    <div class="titulo-secao revela">
+      <div class="selo">A consulta</div>
+      <h2>Tudo o que você precisa saber <strong>antes de vir.</strong></h2>
+      <p>Atendimento exclusivamente particular, sem pressa e com acompanhamento.</p>
+    </div>
+    <div class="grade">
+      <div class="item revela">
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h4>Tempo de verdade</h4>
+        <p>A consulta com o Dr. Thiago dura, em média, 50 minutos.</p>
+      </div>
+      <div class="item revela">
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></div>
+        <h4>Nada a levar</h4>
+        <p>Não é preciso trazer material nem documento específico. Pode vir com acompanhante.</p>
+      </div>
+      <div class="item revela">
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4v6h6"/><path d="M5 15a8 8 0 1 0 2-8.5L4 10"/></svg></div>
+        <h4>Retorno incluso</h4>
+        <p>A primeira consulta dá direito a um retorno. As seguintes são de acompanhamento.</p>
+      </div>
+      <div class="item revela">
+        <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 20c0-2 1-3.8 2.6-4.6"/></svg></div>
+        <h4>A partir de 10 anos</h4>
+        <p>Crianças e adolescentes são atendidos com a presença do responsável.</p>
+      </div>
+    </div>
+    <div class="pagamento revela">
+      <span><b>Pagamento:</b> Pix, cartão e parcelamento.</span>
+      <span><b>Reserva:</b> um sinal confirma o horário; o restante é pago ao final da consulta.</span>
+      <span><b>Atraso:</b> tolerância de 15 minutos.</span>
+    </div>
+  </div>
+</section>
+
+<section id="whatsapp">
+  <div class="faixa whats">
+    <div class="revela">
+      <div class="selo">Atendimento</div>
+      <div class="titulo-secao" style="margin-bottom:30px">
+        <h2>Agende em poucos minutos, <strong>pelo WhatsApp.</strong></h2>
+        <p>Consulte horários, marque, remarque ou tire suas dúvidas pela nossa conversa no WhatsApp.</p>
+      </div>
+      <ol class="passos">
+        <li><span><b>Envie uma mensagem</b> contando o que procura.</span></li>
+        <li><span><b>Escolha o horário</b> entre as opções disponíveis.</span></li>
+        <li><span><b>Confirme</b> e receba o resumo com data, hora e endereço.</span></li>
+      </ol>
+      <a class="botao" href="https://wa.me/5562981864858?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Falar com a Steger Medics</a>
+    </div>
+    <div class="celular revela" aria-hidden="true">
+      <div class="tela" id="conversa">
+        <div class="topo">
+          <div class="av"><svg><use href="#simbolo"/></svg></div>
+          <div><b>Steger Medics</b><small>online</small></div>
+        </div>
+        <div class="bolha eu">Olá! Gostaria de marcar uma consulta de nutrologia.</div>
+        <div class="bolha eles">Olá! Será um prazer atendê-lo. Temos estes horários com o Dr. Thiago Steger: terça às 09:00, quarta às 14:00 ou quinta às 10:00. Qual prefere?</div>
+        <div class="bolha eu">Quarta às 14h, por favor.</div>
+        <div class="bolha eles">Perfeito! Consulta confirmada para quarta, às 14:00, com o Dr. Thiago Steger, na Av. Itália, 911, Jardim Europa. Até lá!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="local" class="fundo-2">
+  <div class="faixa">
+    <div class="titulo-secao revela">
+      <div class="selo">Como chegar</div>
+      <h2>No Jardim Europa, <strong>perto de você.</strong></h2>
+    </div>
+    <div class="local">
+      <div class="info revela">
+        <div class="linha"><div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><b>Endereço</b><span>Avenida Itália, 911, Quadra 14, Lote 05<br>Jardim Europa, Goiânia/GO · CEP 74325-110</span></div></div>
+        <div class="linha"><div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg></div>
+          <div><b>Estacionamento</b><span>A clínica possui estacionamento. Próximo ao Terminal Bandeiras.</span></div></div>
+        <div class="linha"><div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><b>Horário</b><span>Segunda a sexta-feira, das 08:00 às 18:00</span></div></div>
+        <div class="linha"><div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div>
+          <div><b>WhatsApp</b><span><a href="https://wa.me/5562981864858" target="_blank" rel="noopener">(62) 98186-4858</a></span></div></div>
+        <a class="botao fantasma" href="https://www.google.com/maps/search/?api=1&query=Avenida%20It%C3%A1lia%2C%20911%2C%20Jardim%20Europa%2C%20Goi%C3%A2nia%20GO%2074325-110" target="_blank" rel="noopener" style="align-self:flex-start">Abrir no mapa</a>
+      </div>
+      <div class="mapa revela">
+        <iframe title="Mapa: Steger Medics, Avenida Itália, 911, Jardim Europa, Goiânia" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Avenida%20It%C3%A1lia%2C%20911%2C%20Jardim%20Europa%2C%20Goi%C3%A2nia%20GO%2074325-110&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chamada">
+  <div class="faixa">
+    <div class="caixa revela">
+      <h2>Cuide de você <strong>com quem cuida de verdade.</strong></h2>
+      <p>Agende sua consulta com a Dra. Michelly Steger ou com o Dr. Thiago Steger.</p>
+      <a class="botao" href="https://wa.me/5562981864858?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="faixa">
+    <div>
+      <a class="marca" href="#inicio" style="margin-bottom:14px"><svg aria-hidden="true"><use href="#simbolo"/></svg><span>Steger <b>Medics</b></span></a>
+      <p>Sua saúde, nossa prioridade.</p>
+      <p>Avenida Itália, 911, Jardim Europa, Goiânia/GO</p>
+    </div>
+    <div>
+      <h5>Corpo clínico</h5>
+      <p>Dra. Michelly Steger · Dermatologia · CRM/GO 30033</p>
+      <p>Dr. Thiago Steger · Nutrologia · CRM/GO 29988</p>
+    </div>
+    <div>
+      <h5>Atendimento</h5>
+      <p>Segunda a sexta, 08:00 às 18:00</p>
+      <p><a href="https://wa.me/5562981864858" target="_blank" rel="noopener">WhatsApp (62) 98186-4858</a></p>
+    </div>
+    <div class="base">
+      <span>© 2026 Steger Medics. Responsável técnico: Dr. Thiago Steger, CRM/GO 29988.</span>
+      <span>Agenda e atendimento com <a href="https://www.nexamedic.com.br" target="_blank" rel="noopener">NexaMedic</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="whats-flutuante" href="https://wa.me/5562981864858?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  const aoRolar = () => nav.classList.toggle('rolou', scrollY > 20);
+  addEventListener('scroll', aoRolar, { passive: true }); aoRolar();
+
+  const btn = document.getElementById('menuBtn'), links = document.getElementById('links');
+  btn.addEventListener('click', () => { const a = links.classList.toggle('aberto'); btn.setAttribute('aria-expanded', a); });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { links.classList.remove('aberto'); btn.setAttribute('aria-expanded', false); }));
+
+  const obs = new IntersectionObserver((entradas) => {
+    entradas.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.revela').forEach(el => obs.observe(el));
+
+  const conversa = document.getElementById('conversa');
+  const bolhas = conversa.querySelectorAll('.bolha');
+  const obsConversa = new IntersectionObserver((entradas) => {
+    if (entradas[0].isIntersecting) { bolhas.forEach((b, i) => setTimeout(() => b.classList.add('vis'), 400 + i * 900)); obsConversa.disconnect(); }
+  }, { threshold: .4 });
+  obsConversa.observe(conversa);
+</script>
+</body>
+</html>
