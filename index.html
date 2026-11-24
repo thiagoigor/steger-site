@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Steger Medics · Dermatologia e Nutrologia em Goiânia</title>
-<meta name="description" content="Steger Medics: dermatologia clínica e estética com a Dra. Michelly Steger e nutrologia com o Dr. Thiago Steger, em Goiânia. Agende pelo WhatsApp.">
+<title>Steger Medics · Saúde e Longevidade em Goiânia</title>
+<meta name="description" content="Steger Medics, saúde e longevidade em Goiânia. Atendimento médico com a Dra. Michelly Steger e o Dr. Thiago Steger. Agende pelo WhatsApp.">
 <meta name="theme-color" content="#05070b">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Steger Medics · Sua saúde, nossa prioridade">
-<meta property="og:description" content="Dermatologia e nutrologia em Goiânia. Agende pelo WhatsApp.">
+<meta property="og:description" content="Saúde e longevidade em Goiânia. Agende pelo WhatsApp.">
 <meta property="og:image" content="https://thiagoigor.github.io/steger-site/og.png">
 <meta property="og:url" content="https://thiagoigor.github.io/steger-site/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -24,6 +24,7 @@
     --texto: #eef1f5;
     --suave: #9aa6b6;
     --creme: #f3e7d8;
+    --dourado: #d4b06a;
     --azul-1: #4fb3f6;
     --azul-2: #2c5fdb;
     --grad: linear-gradient(135deg, var(--azul-1), var(--azul-2));
@@ -41,9 +42,16 @@
   nav.rolou { background: rgba(5,7,11,.82); backdrop-filter: blur(14px); border-color: var(--borda); }
   nav .faixa { display: flex; align-items: center; justify-content: space-between; height: 74px; }
   .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .marca svg { width: 30px; height: 36px; }
-  .marca span { font-size: 19px; letter-spacing: .2px; font-weight: 300; color: var(--creme); }
-  .marca span b { font-weight: 700; }
+  .marca svg { width: 30px; height: 36px; flex: none; }
+  .marca .texto-marca { display: flex; flex-direction: column; line-height: 1.15; }
+  .marca .nome { font-size: 19px; letter-spacing: .2px; font-weight: 300; color: var(--creme); }
+  .marca .nome b { font-weight: 700; }
+  .marca .lema { font-size: 8.5px; letter-spacing: 3.2px; text-transform: uppercase; font-weight: 500; color: var(--dourado); margin-top: 3px; white-space: nowrap; }
+  .marca.vertical { display: inline-flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .marca.vertical svg { width: 42px; height: 50px; }
+  .marca.vertical .texto-marca { align-items: center; }
+  .marca.vertical .nome { font-size: 22px; }
+  .marca.vertical .lema { font-size: 9.5px; letter-spacing: 4px; margin-top: 5px; padding-left: 4px; }
   .links { display: flex; align-items: center; gap: 30px; }
   .links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--suave); transition: color .2s; }
   .links a:hover { color: var(--texto); }
@@ -67,7 +75,7 @@
   .heroi p.lead { font-size: 18px; color: var(--suave); max-width: 540px; margin: 0 0 34px; }
   .acoes { display: flex; flex-wrap: wrap; gap: 14px; }
   .heroi .marca-grande { justify-self: center; position: relative; width: min(380px, 80vw); aspect-ratio: 100/120; }
-  .heroi .marca-grande svg { width: 100%; height: 100%; filter: drop-shadow(0 30px 60px rgba(44,95,219,.45)); animation: flutuar 7s ease-in-out infinite; }
+  .heroi .marca-grande svg { width: 100%; height: 100%; filter: drop-shadow(0 30px 60px rgba(201,160,90,.32)); animation: flutuar 7s ease-in-out infinite; }
   .anel { position: absolute; inset: -12%; border-radius: 50%; border: 1px solid rgba(79,179,246,.15); animation: girar 40s linear infinite; }
   .anel::after { content: ""; position: absolute; top: 8%; left: 50%; width: 8px; height: 8px; border-radius: 50%; background: var(--azul-1); box-shadow: 0 0 18px var(--azul-1); }
   .anel.dois { inset: -26%; border-color: rgba(79,179,246,.07); animation-duration: 70s; animation-direction: reverse; }
@@ -191,8 +199,9 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="gS" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#5cc0fa"/>
-      <stop offset="1" stop-color="#2c5fdb"/>
+      <stop offset="0" stop-color="#f3dca4"/>
+      <stop offset=".5" stop-color="#d4b06a"/>
+      <stop offset="1" stop-color="#a87c3c"/>
     </linearGradient>
     <symbol id="simbolo" viewBox="0 0 100 120">
       <path fill="url(#gS)" d="M92 5 C64 9 19 19 15 41 C13 53 29 59 53 61 C36 55 30 49 32 41 C36 26 64 14 92 5 Z"/>
@@ -205,13 +214,13 @@
   <div class="faixa">
     <a class="marca" href="#inicio" aria-label="Steger Medics, início">
       <svg aria-hidden="true"><use href="#simbolo"/></svg>
-      <span>Steger <b>Medics</b></span>
+      <span class="texto-marca"><span class="nome">Steger <b>Medics</b></span><span class="lema">Saúde e Longevidade</span></span>
     </a>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir o menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <div class="links" id="links">
-      <a href="#especialidades">Especialidades</a>
+      <a href="#especialidades">Corpo clínico</a>
       <a href="#consulta">A consulta</a>
       <a href="#whatsapp">Atendimento</a>
       <a href="#local">Como chegar</a>
@@ -223,18 +232,18 @@
 <header class="heroi" id="inicio">
   <div class="faixa">
     <div class="revela">
-      <div class="selo">Dermatologia e Nutrologia · Goiânia</div>
+      <div class="selo">Saúde e Longevidade · Goiânia</div>
       <h1>Sua saúde, <strong>nossa prioridade.</strong></h1>
-      <p class="lead">Cuidado médico próximo e individualizado, com acompanhamento de verdade. Dermatologia clínica e estética com a Dra. Michelly Steger e nutrologia com o Dr. Thiago Steger.</p>
+      <p class="lead">Cuidado médico próximo e individualizado, com acompanhamento de verdade, com a Dra. Michelly Steger e o Dr. Thiago Steger.</p>
       <div class="acoes">
         <a class="botao" href="https://wa.me/5562981864858?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>
           Agendar pelo WhatsApp
         </a>
-        <a class="botao fantasma" href="#especialidades">Conhecer as especialidades</a>
+        <a class="botao fantasma" href="#especialidades">Conhecer os médicos</a>
       </div>
       <div class="numeros">
-        <div><b>2</b><span>especialidades médicas</span></div>
+        <div><b>2</b><span>médicos no corpo clínico</span></div>
         <div><b>50 min</b><span>de consulta, em média</span></div>
         <div><b>Seg a sex</b><span>das 08:00 às 18:00</span></div>
       </div>
@@ -249,24 +258,24 @@
 <section id="especialidades">
   <div class="faixa">
     <div class="titulo-secao revela">
-      <div class="selo">Especialidades</div>
+      <div class="selo">Corpo clínico</div>
       <h2>Dois olhares médicos, <strong>um só cuidado.</strong></h2>
       <p>Cada consulta é conduzida com tempo, escuta e um plano pensado para você.</p>
     </div>
     <div class="especialidades">
       <article class="especialidade revela">
         <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 3.5 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-6.5 6-10Z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></div>
-        <div class="area">Dermatologia clínica e estética</div>
+        <div class="area">Pele, cabelos e unhas</div>
         <h3>Dra. Michelly Steger</h3>
-        <div class="crm">Dermatologia · CRM/GO 30033</div>
+        <div class="crm">Médica · CRM/GO 30033</div>
         <p>Cuidado com a saúde da pele, dos cabelos e das unhas, do diagnóstico ao tratamento, e procedimentos estéticos com indicação médica e naturalidade.</p>
         <div class="tags"><span>Pele</span><span>Cabelos e unhas</span><span>Procedimentos estéticos</span></div>
       </article>
       <article class="especialidade revela">
         <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
-        <div class="area">Nutrologia</div>
+        <div class="area">Emagrecimento e saúde hormonal</div>
         <h3>Dr. Thiago Steger</h3>
-        <div class="crm">Nutrologia · CRM/GO 29988</div>
+        <div class="crm">Médico · CRM/GO 29988</div>
         <p>Acompanhamento médico para emagrecimento, composição corporal e saúde hormonal, com avaliação completa e um plano individualizado.</p>
         <div class="tags"><span>Emagrecimento</span><span>Saúde hormonal</span><span>Composição corporal</span></div>
       </article>
@@ -332,7 +341,7 @@
           <div class="av"><svg><use href="#simbolo"/></svg></div>
           <div><b>Steger Medics</b><small>online</small></div>
         </div>
-        <div class="bolha eu">Olá! Gostaria de marcar uma consulta de nutrologia.</div>
+        <div class="bolha eu">Olá! Gostaria de marcar uma consulta com o Dr. Thiago.</div>
         <div class="bolha eles">Olá! Será um prazer atendê-lo. Temos estes horários com o Dr. Thiago Steger: terça às 09:00, quarta às 14:00 ou quinta às 10:00. Qual prefere?</div>
         <div class="bolha eu">Quarta às 14h, por favor.</div>
         <div class="bolha eles">Perfeito! Consulta confirmada para quarta, às 14:00, com o Dr. Thiago Steger, na Av. Itália, 911, Jardim Europa. Até lá!</div>
@@ -382,14 +391,14 @@
 <footer>
   <div class="faixa">
     <div>
-      <a class="marca" href="#inicio" style="margin-bottom:14px"><svg aria-hidden="true"><use href="#simbolo"/></svg><span>Steger <b>Medics</b></span></a>
+      <a class="marca vertical" href="#inicio" style="margin-bottom:18px" aria-label="Steger Medics, Saúde e Longevidade, início"><svg aria-hidden="true"><use href="#simbolo"/></svg><span class="texto-marca"><span class="nome">Steger <b>Medics</b></span><span class="lema">Saúde e Longevidade</span></span></a>
       <p>Sua saúde, nossa prioridade.</p>
       <p>Avenida Itália, 911, Jardim Europa, Goiânia/GO</p>
     </div>
     <div>
       <h5>Corpo clínico</h5>
-      <p>Dra. Michelly Steger · Dermatologia · CRM/GO 30033</p>
-      <p>Dr. Thiago Steger · Nutrologia · CRM/GO 29988</p>
+      <p>Dra. Michelly Steger — Médica · CRM/GO&nbsp;30033</p>
+      <p>Dr. Thiago Steger — Médico · CRM/GO&nbsp;29988</p>
     </div>
     <div>
       <h5>Atendimento</h5>

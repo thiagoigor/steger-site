@@ -1,3 +1,3 @@
 # steger-site
 
-Site institucional da Steger Medics (dermatologia e nutrologia, Goiania). Pagina estatica: index.html com CSS e JS embutidos.
+Site institucional da Steger Medics (saúde e longevidade, Goiânia). Página estática: index.html com CSS e JS embutidos.
